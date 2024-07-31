@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Initialize Firebase Admin SDK
 if (!admin.apps.length) {
-  const serviceAccount = require('../../service_key.json'); // Adjust path as needed
+  const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT || '{}');
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   });
@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
     notification: {
       title: title,
       body: message,
-      imageUrl: "https://cdn-icons-png.flaticon.com/512/1827/1827272.png"
+      imageUrl: "https://cdn-icons-png.flaticon.com/512/1827/1827272.png",
     },
     webpush: link && {
       fcmOptions: {
