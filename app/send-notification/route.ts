@@ -18,6 +18,7 @@ export async function POST(request: NextRequest) {
     notification: {
       title: title,
       body: message,
+      imageUrl:"https://cdn-icons-png.flaticon.com/512/1827/1827272.png"
     },
     webpush: link && {
       fcmOptions: {
