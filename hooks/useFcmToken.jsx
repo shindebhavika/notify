@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { getToken, onMessage, Unsubscribe } from "firebase/messaging";
+import { getToken, onMessage } from "firebase/messaging";
 import { fetchToken, messaging } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -32,9 +32,8 @@ async function getNotificationPermissionAndToken() {
 
 const useFcmToken = () => {
   const router = useRouter(); // Initialize the router for navigation.
-  const [notificationPermissionStatus, setNotificationPermissionStatus] =
-    useState<NotificationPermission | null>(null); // State to store the notification permission status.
-  const [token, setToken] = useState<string | null>(null); // State to store the FCM token.
+  const [notificationPermissionStatus, setNotificationPermissionStatus] = useState(null); // State to store the notification permission status.
+  const [token, setToken] = useState(null); // State to store the FCM token.
   const retryLoadToken = useRef(0); // Ref to keep track of retry attempts.
   const isLoading = useRef(false); // Ref to keep track if a token fetch is currently in progress.
 
@@ -138,7 +137,7 @@ const useFcmToken = () => {
         // Step 10: Handle notification click event to navigate to a link if present.
         n.onclick = (event) => {
           event.preventDefault();
-          const link = (event.target as any)?.data?.url;
+          const link = event.target?.data?.url;
           if (link) {
             router.push(link);
           } else {
@@ -151,7 +150,7 @@ const useFcmToken = () => {
       return unsubscribe;
     };
 
-    let unsubscribe: Unsubscribe | null = null;
+    let unsubscribe = null;
 
     setupListener().then((unsub) => {
       if (unsub) {

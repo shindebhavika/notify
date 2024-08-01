@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/ui/button.jsx", "components/ui/sonner.jsx", "components/ui/toast.jsx", "components/ui/toaster.jsx", "hooks/useFcmToken.jsx", "lib/utils.js", "firebase.js", "app/contact/page.jsx", "components/ui/use-toast.js", "app/send-notification/route.js", "app/layout.jsx", "app/page.jsx"],
   "exclude": ["node_modules"]
 }
