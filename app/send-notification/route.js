@@ -4,7 +4,7 @@ const { NextRequest, NextResponse } = require("next/server");
 
 // Initialize Firebase Admin SDK
 if (!admin.apps.length) {
-  const serviceAccount = require('@/service_key.json');
+  const serviceAccount = require('../../service_key.json');
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   });

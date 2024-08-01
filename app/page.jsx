@@ -39,7 +39,7 @@ export default function Home() {
 
       <Button
         disabled={!token}
-        className="mt-5"
+        className="mt-5 bg-orange-800 p-8"
         onClick={handleTestNotification}
       >
         Send Test Notification
