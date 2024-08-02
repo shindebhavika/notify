@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import useFcmToken from "@/hooks/useFcmToken";
-
+import NotificationManager from "./NotificationManager";
 export default function Home() {
   const { token, notificationPermissionStatus } = useFcmToken();
 
@@ -44,6 +44,7 @@ export default function Home() {
       >
         Send Test Notification
       </Button>
+      <NotificationManager />
     </main>
   );
 }

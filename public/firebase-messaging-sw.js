@@ -46,7 +46,7 @@ self.addEventListener("notificationclick", function (event) {
   event.waitUntil(
     clients
       // https://developer.mozilla.org/en-US/docs/Web/API/Clients/matchAll
-      .matchAll({ includeUncontrolled: true })
+      .matchAll({ type: "window", includeUncontrolled: true })
       .then(function (clientList) {
         const url = event.notification.data.url;
 
